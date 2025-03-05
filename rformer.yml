@@ -1,0 +1,24 @@
+name: rformer
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pip:
+    - iisignature
+    - ray
+    - "ray[tune]"
+    - wandb
+    - sktime
+    - librosa
+    - tqdm
+    - tensorboard  
+    - aeon
