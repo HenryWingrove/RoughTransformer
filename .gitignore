@@ -179,3 +179,7 @@ cython_debug/
 .pypirc
 
 FB_2019-01-03_34200000_57600000_orderbook_10.csv
+
+miniconda.sh
+
+rformer_best_model.pt

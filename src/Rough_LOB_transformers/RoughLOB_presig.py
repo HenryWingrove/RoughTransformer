@@ -12,8 +12,7 @@ import statistics
 import pprint
 
 
-# Optionally log in to wandb (uncomment if needed)
-# wandb.login()
+wandb.login()
 
 #############################################
 # Configuration Parameters for Rough Transformer
@@ -77,10 +76,9 @@ RANDOM_PERCENTAGE = 0.7
 MODEL = 'transformer'  # or 'lstm'
 TEST_SIZE = 0.3
 VAL_SIZE = 0.5
-INPUT_SIZE = 2  # (number of raw features in CSV)
+INPUT_SIZE = 2 
 SEQ_LEN = 100   # Length of each sequence window
 
-# CSV file location – adjust path as needed.
 CSV_FILE = '/kaggle/input/fb-2019-01-03/FB_2019-01-03_34200000_57600000_orderbook_10.csv'
 
 # Device selection: We use GPU if available.
@@ -100,11 +98,7 @@ class LOBDataset(Dataset):
         self.data.sort_values('Timestamp', inplace=True)
         self.seq_len = seq_len
 
-        # *** If you want to drop columns between time and Ask_Price_Level_1,
-        # modify the following line accordingly. For example:
-        # self.data = self.data[['DateTime', 'Price', 'Ask_Price_Level_1', ...]]
-        # self.feature_cols = self.data.columns.drop('DateTime').tolist()
-        # ***
+
         self.feature_cols = [col for col in self.data.columns if col not in ['DateTime', 'Order_ID']]
 
         self.sequences = []
@@ -180,7 +174,7 @@ def get_dataset_preprocess(config, seed, device):
     seq_len = config.seq_len
     # Create the raw dataset
     raw_dataset = LOBDataset(csv_file, seq_len)
-    # For quick testing, restrict to a small subset (e.g., 1% of the dataset)
+    # For quick testing
     total_samples = len(raw_dataset)
     sample_size = max(1, int(0.01 * total_samples))
     raw_dataset = Subset(raw_dataset, list(range(sample_size)))

@@ -1,51 +1,42 @@
 # RFormer
 
-Official Repository for the NeurIPS 2024 paper **Rough Transformers: Lightweight and Continuous Time Series Modelling through Signature Patching**.
+This repository is an extension of [RFormer](https://github.com/AlvaroArroyo/RFormer.git), modified to fit the requirements of thesis research. The project builds upon the original implementation of Rough Transformers for time-series modeling.
 
-(Note: The code will undergo some refactoring in the near future.)
-
-Please, if you use this code, cite the [published paper in the Proceedings of NeurIPS 2024](https://arxiv.org/abs/2405.20799):
-
-```
-@inproceedings{morenorough,
-  title={Rough Transformers: Lightweight and Continuous Time Series Modelling through Signature Patching},
-  author={Moreno-Pino, Fernando and Arroyo, Alvaro and Waldon, Harrison and Dong, Xiaowen and Cartea, Alvaro},
-  booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems}
-}
-```
+---
 
 ## Requirements
 
-To ensure compatibility, the repository includes a `rformer.yml` file for creating a conda environment with all necessary dependencies.
+For compatibility, the repository includes a `rformer.yml` file for setting up a conda environment with all necessary dependencies.
 
-## Setting Up the Environment
+### Setting Up the Environment
 
-To set up the environment:
+To create and activate the environment:
 
 ```bash
 conda env create -f rformer.yml
 conda activate rformer
 ```
 
+---
+
 ## Running the Code
 
-First, clone the repository:
-   ```bash
-   git clone https://github.com/AlvaroArroyo/RFormer.git
-   cd RFormer
-   ```
+---
 
-The paper includes experiments on both synthetic (`src/other`) and UEA datasets (`src/UEA`). 
+## Modifications & Extensions
 
-To train the model on synthetic data:
+This repository has been extended to align with the objectives of my thesis, including:
+- Improved preprocessing for irregular time-series data
+- Adjustments to transformer architecture for rough path embedding
+- Additional evaluation metrics for performance analysis
 
-```bash
-python src/other/main_classification_synthetic_long.py
-```
+Further modifications will be made to enhance explainability and robustness.
 
-To train the model on UEA datasets (https://www.timeseriesclassification.com):
+---
 
-```bash
-python src/UEA/main.py
-```
+## License
+
+The original repository is licensed under **MIT License**. Please refer to the original repo for details.
+
+---
 
